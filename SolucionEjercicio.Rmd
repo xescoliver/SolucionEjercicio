@@ -24,6 +24,8 @@ library(MASS)
 library(robustbase)
 ```
 
+## a)
+
 Cargo los datos y accedo a la ayuda usando el comando help.
 
 ```{r}
@@ -34,20 +36,32 @@ help("mammals")
 help("Animals2")
 ```
 
+## b)
+
+Observo las filas y columnas.
+
 ```{r}
-# Dimensiones: filas y columnas
 dim(mammals)
 dim(Animals2)
+```
 
-# Estructura y tipos de variables
-str(mammals)
-str(Animals2)
+Observo los primeros elementos.
 
-# Primeras observaciones
+```{r}
 head(mammals)
 head(Animals2)
+```
 
-# Resumen estadístico
-summary(mammals)
-summary(Animals2)
+Observo los ultimos elementos.
+
+```{r}
+tail(mammals)
+tail(Animals2)
+```
+
+Muestro las características de los objetos de datos.
+
+```{r}
+str(mammals)
+str(Animals2)
 ```
