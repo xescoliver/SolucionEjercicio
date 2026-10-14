@@ -5,7 +5,49 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-
 **Máster:** Ciencia de Datos
 
-**Asignatura:** Análisis exploratorio de datos  
+**Asignatura:** Análisis exploratorio de datos
+
+Antes de empezar a analizar los datos compruebo si estan instaladas las librerias necesarias. EN caso de no estarlo las instalo.
+
+```{r}
+if (!requireNamespace("MASS", quietly = TRUE)) {
+  install.packages("MASS", quiet=TRUE)
+}
+
+if (!requireNamespace("robustbase", quietly = TRUE)) {
+  install.packages("robustbase", quiet=TRUE)
+}
+
+library(MASS)
+library(robustbase)
+```
+
+Cargo los datos y accedo a la ayuda usando el comando help.
+
+```{r}
+data("mammals", package = "MASS")
+data("Animals2", package = "robustbase")
+
+help("mammals")
+help("Animals2")
+```
+
+```{r}
+# Dimensiones: filas y columnas
+dim(mammals)
+dim(Animals2)
+
+# Estructura y tipos de variables
+str(mammals)
+str(Animals2)
+
+# Primeras observaciones
+head(mammals)
+head(Animals2)
+
+# Resumen estadístico
+summary(mammals)
+summary(Animals2)
+```
