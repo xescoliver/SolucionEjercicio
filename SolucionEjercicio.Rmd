@@ -86,3 +86,12 @@ rownames(Animals2)
 ```{r}
 colnames(Animals2)
 ```
+
+## d)
+
+Usando intersect guardamos en commonAnimals los nombres de los animales que aparecen en ambos conjuntos. Para ello usamos rownames, que nos devuelve los nombres de las filas de cada dataframe, que equivalen a los nombres de los animales.
+
+```{r}
+commonAnimals <- intersect(rownames(mammals), rownames(Animals2))
+commonAnimals
+```
