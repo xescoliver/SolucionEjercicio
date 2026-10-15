@@ -146,4 +146,41 @@ for (animal1 in unicos_mammals) {
 }
 ```
 
-Como vemos hay 4 animales que tienen los mismos datos exactos y nombres parecidos, por lo que concluimos que se refieren a los mismos animales. Por lo tanto solo tenemos 7 animales que solo aparecen en uno de los dataframes
+Como vemos hay 4 animales que tienen los mismos datos exactos y nombres parecidos, por lo que concluimos que se refieren a los mismos animales. Por lo tanto solo tenemos 3 animales que solo aparecen en uno de los dataframes
+
+## f)
+
+Juntamos los datos de los animales con nombres diferentes en un solo dataframe. Después eliminamos los duplicados que tienen el mismo peso corporal y cerebral, aunque sus nombres sean distintos.
+
+```{r}
+# Copiar los animales de ambos conjuntos
+animales <- rbind(
+  mammals[unicos_mammals, ],
+  Animals2[unicos_Animals2, ]
+)
+
+# Detectar duplicados, incluyendo ambas apariciones
+duplicados <- duplicated(animales[, c("body", "brain")]) |
+  duplicated(animales[, c("body", "brain")], fromLast = TRUE)
+
+# Eliminar todas las filas duplicadas
+animales <- animales[!duplicados, ]
+
+print(animales)
+cat("Numero de animales exclusivos:", nrow(animales), "\n")
+```
+
+Representamos el peso corporal frente al peso cerebral para comparar los animales.
+
+```{r, fig.width=10, fig.height=7}
+plot(animales$body, animales$brain,
+     log = "xy", pch = 19, col = "blue",
+     xlab = "Peso corporal (kg)",
+     ylab = "Peso cerebral (g)",
+     main = "Animales sin duplicados")
+
+text(animales$body, animales$brain,
+     labels = rownames(animales), pos = 3, cex = 0.7)
+```
+
+Tras eliminar los registros duplicados, se observan diferencias significativas en el peso corporal y cerebral de los animales. Se observa que el Brachiosaurus tiene un peso mucho mayor, tanto cerebral como corporal.
