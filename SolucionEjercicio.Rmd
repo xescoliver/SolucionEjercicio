@@ -65,3 +65,24 @@ Muestro las características de los objetos de datos.
 str(mammals)
 str(Animals2)
 ```
+
+## c)
+
+Muestro los nombres de las filas con rownames y de las columnas con colnames de ambos conjuntos de datos.
+
+```{r}
+rownames(mammals)
+
+```
+
+```{r}
+colnames(mammals)
+```
+
+```{r}
+rownames(Animals2)
+```
+
+```{r}
+colnames(Animals2)
+```
